@@ -1,0 +1,35 @@
+exam javoblarini githubga yuklaymiz va linkini yuboramiz
+
+
+1. category va product(product xususiyatlari va kop rasmli bolsin, owneri ham),login(jwt orqali),
+register(username, email,password, confirm_password - emailga saytdan royhatdan otildi degan xabar kelsin) qilinsin
+
+2. category(name) boyicha filter, product nomi va description boyicha search qilinsin,
+category va product uchun list api pagination bilan chiqarilsin
+
+3. har kuni ertalab 8:00da barcha userlarga bugun bizda yangi productlar qo'shilsin degan xabarni pochtasiga yuborish kk
+
+4. productni o'zgartirish va o'chirish uchun api chiqarilsin(faqat owner uchun)
+
+5. category,product,user modellari uchun UUID ishlatilsin, swaggerda ham uuid orqali ishlaydigan qilish kerak,
+postgres databaseda o'z ismimiz bilan user ochamiz database nomi esa ism_db bolsin
+
+
+
+
+POSTGRES:
+    docker exec -itu postgres database_name psql
+    create user akbarali with password '1';
+    set role akbarali;
+    GRANT ALL PRIVILEGES ON DATABASE akbarali_db TO akbarali;
+    GRANT CREATE ON DATABASE akbarali_db TO akbarali;
+
+ENVIRONMENT:
+    MINIO_ROOT_USER=admin
+    MINIO_ROOT_PASSWORD=12345678
+    MINIO_BUCKET_NAME=media
+    MINIO_ACCESS_KEY='z3hojo1JpHeB41Z4toIb'
+    MINIO_SECRET_KEY='qeNTuf7HYDkAIlRQe71ya0KGz2MUPKsbjTkRUcus'
+    MINIO_ENDPOINT='http://localhost:9000'
+    REDIS_URL='redis://127.0.0.1:6379'
+    DATABASE_URL='postgres://postgres:1@localhost:5432/akbarali_db'
