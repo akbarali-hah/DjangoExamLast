@@ -1,8 +1,7 @@
 from django.contrib.auth.hashers import make_password
 from rest_framework.exceptions import ValidationError
 from rest_framework.fields import HiddenField, CurrentUserDefault
-from rest_framework.generics import RetrieveUpdateDestroyAPIView
-from rest_framework.serializers import ModelSerializer, CharField, EmailField
+from rest_framework.serializers import ModelSerializer, CharField, EmailField, Serializer, IntegerField
 
 from apps.models import Category, Product, User
 
@@ -49,3 +48,14 @@ class ProductUpdateModelSerializer(ModelSerializer):
     class Meta:
         model = Product
         fields = 'name', 'description', 'price'
+
+
+class Task1Serializer(Serializer):
+    group_id = IntegerField(default=100)
+    student_id = IntegerField(default=15)
+
+
+class Task2Serializer(ModelSerializer):
+    class Meta:
+        model = Product
+        fields = 'uuid', 'name', 'description', 'price'

@@ -10,5 +10,9 @@ refresh:
 admin:
 	python3 manage.py createsuperuser
 
-start:
-	docker start pg_messenger redis_db minio_db
+run:
+	sudo chmod 666 /var/run/docker.sock
+	docker start pg_messenger redis_db minio_tg
+
+celery:
+	celery -A root worker -l INFO

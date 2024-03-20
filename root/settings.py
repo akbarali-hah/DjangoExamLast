@@ -21,7 +21,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.apps.AppsConfig',
     'rest_framework',
-    'drf_yasg'
+    'drf_yasg',
+    'django_celery_results'
 ]
 
 AUTH_USER_MODEL = 'apps.User'
@@ -132,3 +133,7 @@ CACHES = {
         "LOCATION": os.getenv('REDIS_URL'),
     },
 }
+
+CELERY_BROKER_URL = os.getenv('REDIS_URL')
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_RESULT_EXTENDED = True

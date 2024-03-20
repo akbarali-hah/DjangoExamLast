@@ -31,5 +31,5 @@ ENVIRONMENT:
     MINIO_ACCESS_KEY='z3hojo1JpHeB41Z4toIb'
     MINIO_SECRET_KEY='qeNTuf7HYDkAIlRQe71ya0KGz2MUPKsbjTkRUcus'
     MINIO_ENDPOINT='http://localhost:9000'
-    REDIS_URL='redis://127.0.0.1:6379'
+    REDIS_URL='redis://localhost:6379'
     DATABASE_URL='postgres://postgres:1@localhost:5432/akbarali_db'
