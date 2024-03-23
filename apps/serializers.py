@@ -58,4 +58,4 @@ class Task1Serializer(Serializer):
 class Task2Serializer(ModelSerializer):
     class Meta:
         model = Product
-        fields = 'uuid', 'name', 'description', 'price'
+        exclude = 'category', 'owner'

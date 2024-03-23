@@ -22,7 +22,8 @@ INSTALLED_APPS = [
     'apps.apps.AppsConfig',
     'rest_framework',
     'drf_yasg',
-    'django_celery_results'
+    'django_celery_results',
+    'django_filters'
 ]
 
 AUTH_USER_MODEL = 'apps.User'
@@ -32,8 +33,17 @@ ROOT_URLCONF = 'root.urls'
 WSGI_APPLICATION = 'root.wsgi.application'
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'pg_data',
+    #     'USER': 'root',
+    #     'PASSWORD': 1,
+    #     'HOST': 'localhost',
+    #     'PORT': 3306
+    # }
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
@@ -42,10 +52,12 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'apps.pagination.CustomPageNumberPagination',
     'PAGE_SIZE': 1
 }
+
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
+
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
         'basic': {

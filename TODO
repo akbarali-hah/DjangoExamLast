@@ -15,16 +15,15 @@ category va product uchun list api pagination bilan chiqarilsin
 postgres databaseda o'z ismimiz bilan user ochamiz database nomi esa ism_db bolsin
 
 
-
-
-POSTGRES:
+------------------------------------------------------------------------------------------------------------------------
+                                                     POSTGRES:
     docker exec -itu postgres database_name psql
     create user akbarali with password '1';
     set role akbarali;
     GRANT ALL PRIVILEGES ON DATABASE akbarali_db TO akbarali;
     GRANT CREATE ON DATABASE akbarali_db TO akbarali;
-
-ENVIRONMENT:
+------------------------------------------------------------------------------------------------------------------------
+                                                    ENVIRONMENT:
     MINIO_ROOT_USER=admin
     MINIO_ROOT_PASSWORD=12345678
     MINIO_BUCKET_NAME=media
@@ -33,3 +32,8 @@ ENVIRONMENT:
     MINIO_ENDPOINT='http://localhost:9000'
     REDIS_URL='redis://localhost:6379'
     DATABASE_URL='postgres://postgres:1@localhost:5432/akbarali_db'
+------------------------------------------------------------------------------------------------------------------------
+
+docker run --name mysql_db -p 3306:3306 -e MY_SQL_ROOT_PASSWORD=1 -d mysql
+
+docker run -d --name=mysql_db -p3306:3306 -e MYSQL_ROOT_PASSWORD=1 -d mysql

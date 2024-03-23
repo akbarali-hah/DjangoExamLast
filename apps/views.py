@@ -48,7 +48,7 @@ class UserCreateAPIView(CreateAPIView):
         send_mail(email_subject, email_message, EMAIL_HOST_USER, [user.email])
 
 
-class CategroyListApiView(ListAPIView):
+class CategoryListApiView(ListAPIView):
     serializer_class = CategoryModelSerializer
     queryset = Category.objects.all()
     filter_backends = DjangoFilterBackend,
